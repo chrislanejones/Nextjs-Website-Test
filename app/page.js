@@ -1,11 +1,18 @@
 import Image from "next/image";
 
-
 // Server Side Rendering
 async function Page({ parms }) {
   const res = await fetch(
-    `https://jsonplaceholder.typecode.com/posts/${parms.id}`
+    `https://jsonplaceholder.typecode.com/posts/${parms.id}`,
     { cache: "no-store" }
+  );
+}
+const data = await res.json();
+
+// Static Site Generation
+async function Page({ parms }) {
+  const res = await fetch(
+    `https://jsonplaceholder.typecode.com/posts/${parms.id}`
   );
 }
 const data = await res.json();
