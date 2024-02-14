@@ -7,7 +7,7 @@ async function Page({ parms }) {
     { cache: "no-store" }
   );
 }
-const data = await res.json();
+const data1 = await res.json();
 
 // Static Site Generation
 async function Page({ parms }) {
@@ -15,7 +15,16 @@ async function Page({ parms }) {
     `https://jsonplaceholder.typecode.com/posts/${parms.id}`
   );
 }
-const data = await res.json();
+const data2 = await res.json();
+
+// Incremental Static Generation
+async function Page({ parms }) {
+  const res = await fetch(
+    `https://jsonplaceholder.typecode.com/posts/${parms.id}`,
+    { next: { revalidate: 10 } }
+  );
+}
+const data2 = await res.json();
 
 export default function Home() {
   return (
