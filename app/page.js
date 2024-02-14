@@ -24,7 +24,7 @@ async function Page({ parms }) {
     { next: { revalidate: 10 } }
   );
 }
-const data2 = await res.json();
+const data3 = await res.json();
 
 export default function Home() {
   return (
