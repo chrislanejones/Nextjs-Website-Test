@@ -5,3 +5,5 @@ export async function Get(request) {
 export async function HEAD(request) {}
 
 export async function POST(request) {}
+
+export async function PUT(request) {}
