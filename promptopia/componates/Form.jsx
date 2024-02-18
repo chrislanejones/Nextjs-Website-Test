@@ -1,7 +1,7 @@
 import React from "react";
 
-const navbar = () => {
-  return <div></div>;
+const Form = () => {
+  return <div>Form</div>;
 };
 
-export default navbar;
+export default Form;
