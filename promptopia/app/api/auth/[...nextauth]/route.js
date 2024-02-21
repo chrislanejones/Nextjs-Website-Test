@@ -1,14 +1,16 @@
 import NextAuth from "next-auth";
-import OktaProvider from "next-auth/providers/okta";
+import Okta from "next-auth/providers/okta";
 
-const handler = NextAuth({
+export const authOptions = {
+  // Configure one or more authentication providers
   providers: [
-    OktaProvider({
-      clientId: "",
-      clientSecret: "",
+    Okta({
+      clientId: process.env.OKTA_OAUTH2_CLIENT_ID,
+      clientSecret: process.env.OKTA_OAUTH2_CLIENT_SECRET,
+      issuer: process.env.OKTA_OAUTH2_ISSUER,
     }),
   ],
-  async session({ session }) {},
-  async signIn({ profile }) {},
-});
+  secret: process.env.SECRET,
+};
+
 export { handler as GET, handler as POST };
