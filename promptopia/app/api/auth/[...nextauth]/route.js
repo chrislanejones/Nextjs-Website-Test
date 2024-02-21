@@ -10,7 +10,6 @@ export const authOptions = {
       issuer: process.env.OKTA_OAUTH2_ISSUER,
     }),
   ],
-  secret: process.env.SECRET,
 };
 
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);
