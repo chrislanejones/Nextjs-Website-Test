@@ -1,16 +1,15 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import Okta from "next-auth/providers/okta";
 
-const options = {
+const authOptions = {
   // Configure one or more authentication providers
   providers: [
-    Providers.Okta({
+    Okta({
       clientId: process.env.OKTA_CLIENTID,
       clientSecret: process.env.OKTA_CLIENTSECRET,
       domain: process.env.OKTA_DOMAIN,
     }),
-    // ...add more providers here
   ],
 };
 
-export default (req, res) => NextAuth(req, res, options);
+export default NextAuth(authOptions);
